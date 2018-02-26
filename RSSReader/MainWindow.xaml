@@ -1,0 +1,49 @@
+﻿<Window x:Class="RSSReader.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="416" Width="500"
+        ResizeMode="NoResize"
+        Background="Silver">
+    <Border Padding="10">
+        <Grid>
+            <StackPanel>
+                <TextBlock Text="Wybierz kanał RSS: " TextAlignment="Center"/>
+                <Grid>
+                    <ComboBox Width="300" Margin="5"/>
+                    <Button Content="szukaj" Width="50" Height="20" Margin="380 0 0 0"/>
+                </Grid>
+                <ListBox Height="120" Name="FeedList"/>
+                <StackPanel>
+                    <Border Padding="2"/>
+                    <TextBlock Name="TitleBlock" Background="White" Margin="0 " FontStyle="Normal" FontSize="16" TextAlignment="Left" FontWeight="DemiBold" TextWrapping="Wrap">
+                        Lorem ipsum dolor sit amet enim. Etiam ullamcorper Suspendisse a pellentesque dui, non felis
+                    </TextBlock>
+                    <TextBlock Name="DateBlock" Background="White" FontSize="10" FontStyle="Italic">
+                        Sat, 24 Feb 18 13:19:45 +0100
+                    </TextBlock>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="2*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Name="DescriptionBlock" Grid.Column="0" Background="White" FontSize="12" TextWrapping="Wrap">
+                            Nullam viverra consectetuer. Quisque cursus et, porttitor risus. Aliquam sem. In hendrerit nulla quam nunc, accumsan congue. Lorem ipsum primis in nibh vel risus. Sed vel lectus. Ut sagittis, ipsum dolor quam.
+                            
+                        </TextBlock>
+                        <Border Grid.Column="1" >
+                            <Canvas Grid.Column="1" Background="White" Name="ImageCanvas" Width="155" Height="112"/>
+                        </Border>
+                    </Grid>
+                    <TextBlock FontSize="12" Name="LinkBlock" Background="White">
+                        <Hyperlink NavigateUri="http://www.google.pl">
+                            zobacz więcej
+                        </Hyperlink>
+                    </TextBlock>
+                </StackPanel>
+            </StackPanel>
+        </Grid>
+    </Border>
+</Window>
