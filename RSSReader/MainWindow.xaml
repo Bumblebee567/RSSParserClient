@@ -6,7 +6,8 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="416" Width="500"
         ResizeMode="NoResize"
-        Background="Silver">
+        Background="Silver"
+        WindowStartupLocation="CenterScreen">
     <Border Padding="10">
         <Grid>
             <StackPanel>
