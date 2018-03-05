@@ -20,6 +20,7 @@ namespace RSSReader
         public string Link { get; set; }
         public string Description { get; set; }
         public string Imagelink { get; set; }
+        public string Date { get; set; }
     
         public virtual Channel Channel { get; set; }
     }
