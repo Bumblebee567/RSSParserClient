@@ -20,10 +20,10 @@
           </Key>
           <Property Name="FeedID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ChannelID" Type="int" Nullable="false" />
-          <Property Name="Title" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Title" Type="nvarchar(max)" />
           <Property Name="Link" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="Date" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="Date" Type="nvarchar(max)" />
           <Property Name="Imagelink" Type="nvarchar(max)" />
         </EntityType>
         <Association Name="FK_Feed_Channel">
