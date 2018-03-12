@@ -23,16 +23,6 @@ namespace RSSReader
         public MainWindow()
         {
             InitializeComponent();
-            var image = new Image();
-            var path = "https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Feed-icon.svg/1200px-Feed-icon.svg.png";
-            BitmapImage bitmap = new BitmapImage();
-            bitmap.BeginInit();
-            bitmap.UriSource = new Uri(path, UriKind.Absolute);
-            bitmap.EndInit();
-            image.Source = bitmap;
-            image.Width = ImageCanvas.Width;
-            image.Height = ImageCanvas.Height;
-            ImageCanvas.Children.Add(image);
         }
     }
 }

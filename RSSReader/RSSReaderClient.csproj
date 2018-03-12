@@ -116,6 +116,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>RSSFeedDatabaseModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Utiles.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MainWindow.xaml.cs">
