@@ -28,10 +28,11 @@ namespace RSSReader
             InitializeComponent();
             Utiles.AddChannelsToCombobox(ChannelsList);
 
-            var startInfo = new ProcessStartInfo();
-            startInfo.WorkingDirectory = "C:/RSSParser";
-            startInfo.FileName = "Parser.exe";
-            process = Process.Start(startInfo);
+            //not working properly
+            //var startInfo = new ProcessStartInfo();
+            //startInfo.WorkingDirectory = "C:/RSSParser";
+            //startInfo.FileName = "Parser.exe";
+            //process = Process.Start(startInfo);
 
             Timer tmr = new Timer();
             tmr.Elapsed += Tmr_Elapsed;
@@ -43,7 +44,7 @@ namespace RSSReader
 
         private void MainWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            process.Kill();
+            //process.Kill();   //not working properly
         }
 
         private void Tmr_Elapsed(object sender, ElapsedEventArgs e)
