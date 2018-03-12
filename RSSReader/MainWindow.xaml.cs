@@ -23,6 +23,7 @@ namespace RSSReader
         public MainWindow()
         {
             InitializeComponent();
+            Utiles.AddChannelsToCombobox(ChannelsList);
         }
     }
 }

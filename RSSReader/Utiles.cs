@@ -26,5 +26,17 @@ namespace RSSReader
             image.Height = 112;
             return image;
         }
+        public static void AddChannelsToCombobox(ComboBox channelsComboBox)
+        {
+            using (var context = new RSSFeedDatabaseEntities())
+            {
+                List<string> channels = new List<string>();
+                foreach (var channel in context.Channel)
+                {
+                    channels.Add(channel.Title);
+                }
+                channelsComboBox.ItemsSource = channels;
+            }
+        }
     }
 }
