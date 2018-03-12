@@ -16,10 +16,18 @@
                     <ComboBox Name="ChannelsList" Width="300" Margin="5"/>
                     <Button Content="szukaj" Width="50" Height="20" Margin="380 0 0 0"/>
                 </Grid>
-                <ListBox Height="120" Name="FeedList"/>
+                <ListBox Height="120" Name="FeedList">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="{Binding Title}"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
                 <StackPanel>
                     <Border Padding="2"/>
-                    <TextBlock Name="TitleBlock" Background="White" Margin="0 " FontStyle="Normal" FontSize="16" TextAlignment="Left" FontWeight="DemiBold" TextWrapping="Wrap" DataContext="{Binding ElementName=FeedList, Path=SelectedItem.Title}">
+                    <TextBlock Name="TitleBlock" Background="White" Margin="0 " FontStyle="Normal" FontSize="16" TextAlignment="Left" FontWeight="DemiBold" TextWrapping="Wrap" Text="{Binding ElementName = Title}">
                         Lorem ipsum dolor sit amet enim. Etiam ullamcorper Suspendisse a pellentesque dui, non felis
                     </TextBlock>
                     <TextBlock Name="DateBlock" Background="White" FontSize="10" FontStyle="Italic">

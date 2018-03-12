@@ -24,6 +24,8 @@ namespace RSSReader
         {
             InitializeComponent();
             Utiles.AddChannelsToCombobox(ChannelsList);
+            Utiles.AddFeedsToListbox("Najnowsze", FeedList);
+            FeedList.Items.SortDescriptions.Add(new System.ComponentModel.SortDescription("FeedID", System.ComponentModel.ListSortDirection.Descending));
         }
     }
 }

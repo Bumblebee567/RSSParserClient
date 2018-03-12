@@ -38,5 +38,14 @@ namespace RSSReader
                 channelsComboBox.ItemsSource = channels;
             }
         }
+        public static void AddFeedsToListbox(string channelTitle, ListBox feedListBox)
+        {
+            IQueryable<Feed> feedsOnChannel;
+            using (var context = new RSSFeedDatabaseEntities())
+            {
+                feedsOnChannel = context.Feed.Where(x => x.Channel.Title == channelTitle);
+                feedListBox.ItemsSource = feedsOnChannel.ToList();
+            }
+        }
     }
 }
