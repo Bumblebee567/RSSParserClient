@@ -19,7 +19,7 @@
                 <ListBox Height="120" Name="FeedList"/>
                 <StackPanel>
                     <Border Padding="2"/>
-                    <TextBlock Name="TitleBlock" Background="White" Margin="0 " FontStyle="Normal" FontSize="16" TextAlignment="Left" FontWeight="DemiBold" TextWrapping="Wrap">
+                    <TextBlock Name="TitleBlock" Background="White" Margin="0 " FontStyle="Normal" FontSize="16" TextAlignment="Left" FontWeight="DemiBold" TextWrapping="Wrap" DataContext="{Binding ElementName=FeedList, Path=SelectedItem.Title}">
                         Lorem ipsum dolor sit amet enim. Etiam ullamcorper Suspendisse a pellentesque dui, non felis
                     </TextBlock>
                     <TextBlock Name="DateBlock" Background="White" FontSize="10" FontStyle="Italic">
