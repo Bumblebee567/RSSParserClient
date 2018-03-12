@@ -13,7 +13,7 @@
             <StackPanel>
                 <TextBlock Text="Wybierz kanał RSS: " TextAlignment="Center"/>
                 <Grid>
-                    <ComboBox Width="300" Margin="5"/>
+                    <ComboBox Name="ChannelsList" Width="300" Margin="5"/>
                     <Button Content="szukaj" Width="50" Height="20" Margin="380 0 0 0"/>
                 </Grid>
                 <ListBox Height="120" Name="FeedList"/>
@@ -35,7 +35,7 @@
                             
                         </TextBlock>
                         <Border Grid.Column="1" >
-                            <Canvas Grid.Column="1" Background="White" Name="ImageCanvas" Width="155" Height="112"/>
+                            <Canvas Grid.Column="1" Background="White" Name="ImageCanvas" Width="155" Height="112" />
                         </Border>
                     </Grid>
                     <TextBlock FontSize="12" Name="LinkBlock" Background="White">
