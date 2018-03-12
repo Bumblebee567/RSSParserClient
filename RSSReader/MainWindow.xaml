@@ -4,19 +4,20 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="Czytnik RSS" Height="416" Width="500"
-        ResizeMode="NoResize"
+        Title="TVN RSS Reader" Height="416" Width="500"
+        ResizeMode="CanMinimize"
         Background="Silver"
-        WindowStartupLocation="CenterScreen">
+        WindowStartupLocation="CenterScreen"
+        Icon="Tatice-Cristal-Intense-RSS.ico">
     <Border Padding="10">
         <Grid>
             <StackPanel>
                 <TextBlock Text="Wybierz kanał RSS: " TextAlignment="Center"/>
                 <Grid>
                     <ComboBox Name="ChannelsList" Width="300" Margin="5"/>
-                    <Button Content="szukaj" Width="50" Height="20" Margin="380 0 0 0"/>
+                    <Button Content="pokaż" Width="50" Height="20" Margin="380 0 0 0" Click="Button_Click"/>
                 </Grid>
-                <ListBox Height="120" Name="FeedList">
+                <ListBox Height="120" Name="FeedList" FontSize="10" IsSynchronizedWithCurrentItem="True" SelectionChanged="FeedList_SelectionChanged">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal">
@@ -27,11 +28,9 @@
                 </ListBox>
                 <StackPanel>
                     <Border Padding="2"/>
-                    <TextBlock Name="TitleBlock" Background="White" Margin="0 " FontStyle="Normal" FontSize="16" TextAlignment="Left" FontWeight="DemiBold" TextWrapping="Wrap" Text="{Binding ElementName = Title}">
-                        Lorem ipsum dolor sit amet enim. Etiam ullamcorper Suspendisse a pellentesque dui, non felis
+                    <TextBlock Name="TitleBlock" Background="White" Margin="0 " FontStyle="Normal" FontSize="16" TextAlignment="Left" FontWeight="DemiBold" TextWrapping="Wrap" >
                     </TextBlock>
                     <TextBlock Name="DateBlock" Background="White" FontSize="10" FontStyle="Italic">
-                        Sat, 24 Feb 18 13:19:45 +0100
                     </TextBlock>
                     <Grid>
                         <Grid.ColumnDefinitions>
@@ -39,7 +38,6 @@
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
                         <TextBlock Name="DescriptionBlock" Grid.Column="0" Background="White" FontSize="12" TextWrapping="Wrap">
-                            Nullam viverra consectetuer. Quisque cursus et, porttitor risus. Aliquam sem. In hendrerit nulla quam nunc, accumsan congue. Lorem ipsum primis in nibh vel risus. Sed vel lectus. Ut sagittis, ipsum dolor quam.
                             
                         </TextBlock>
                         <Border Grid.Column="1" >
@@ -47,7 +45,7 @@
                         </Border>
                     </Grid>
                     <TextBlock FontSize="12" Name="LinkBlock" Background="White">
-                        <Hyperlink NavigateUri="http://www.google.pl">
+                        <Hyperlink Name="HyperlinkBox" RequestNavigate="HyperlinkBox_RequestNavigate">
                             zobacz więcej
                         </Hyperlink>
                     </TextBlock>

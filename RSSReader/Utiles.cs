@@ -22,7 +22,7 @@ namespace RSSReader
             bitmap.UriSource = new Uri(imageUrl, UriKind.Absolute);
             bitmap.EndInit();
             image.Source = bitmap;
-            image.Width = 155;
+            image.Width = 154;
             image.Height = 112;
             return image;
         }
