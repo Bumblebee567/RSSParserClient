@@ -22,21 +22,19 @@ namespace RSSReader
     /// </summary>
     public partial class MainWindow : Window
     {
-        static Process process;
+        public static Process process;
         public MainWindow()
         {
             InitializeComponent();
             Utiles.AddChannelsToCombobox(ChannelsList);
 
-            //not working properly
-            //var startInfo = new ProcessStartInfo();
-            //startInfo.WorkingDirectory = "C:/RSSParser";
-            //startInfo.FileName = "Parser.exe";
-            //process = Process.Start(startInfo);
-
+            var startInfo = new ProcessStartInfo();
+            startInfo.FileName = @"C:\RSSParser\Parser\bin\Debug\Parser.exe";
+            process = Process.Start(startInfo);
+            var a = process.ProcessName;
             Timer tmr = new Timer();
             tmr.Elapsed += Tmr_Elapsed;
-            tmr.Interval = 300000;
+            tmr.Interval = 330000;
             tmr.Start();
 
             Application.Current.MainWindow.Closing += MainWindow_Closing;
@@ -44,17 +42,29 @@ namespace RSSReader
 
         private void MainWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            //process.Kill();   //not working properly
+            if(Process.GetProcessesByName("Parser.exe").Any() == true)
+            {
+                process.Close();
+            }
         }
 
         private void Tmr_Elapsed(object sender, ElapsedEventArgs e)
         {
-            MessageBox.Show("Nowe wiadomości zostały pobrane, wybierz ponownie kategorię", "Informacja", MessageBoxButton.OK, MessageBoxImage.Information);
+            var result = MessageBox.Show("Nowe wiadomości zostały pobrane, czy chcesz odświeżyć listę?", "Informacja", MessageBoxButton.YesNo,
+                MessageBoxImage.Information);
+            if(result == MessageBoxResult.Yes)
+            {
+                Utiles.AddFeedsToListbox(ChannelsList.Text, FeedList);
+            }
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Utiles.AddFeedsToListbox(ChannelsList.Text, FeedList);
+            TitleBlock.Text = String.Empty;
+            DateBlock.Text = String.Empty;
+            DescriptionBlock.Text = String.Empty;
+            ImageCanvas.Children.Clear();
         }
 
         private void FeedList_SelectionChanged(object sender, SelectionChangedEventArgs e)
