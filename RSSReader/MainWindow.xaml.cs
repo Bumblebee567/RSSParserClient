@@ -42,10 +42,7 @@ namespace RSSReader
 
         private void MainWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            if(Process.GetProcessesByName("Parser.exe").Any() == true)
-            {
-                process.Close();
-            }
+            process.Kill();
         }
 
         private void Tmr_Elapsed(object sender, ElapsedEventArgs e)
