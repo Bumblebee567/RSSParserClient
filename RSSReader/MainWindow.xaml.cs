@@ -23,6 +23,7 @@ namespace RSSReader
     public partial class MainWindow : Window
     {
         public static Process process;
+        public static int numOfFeeds;
         public MainWindow()
         {
             InitializeComponent();
@@ -37,6 +38,11 @@ namespace RSSReader
             tmr.Interval = 330000;
             tmr.Start();
 
+            using (var context = new RSSFeedDatabaseEntities())
+            {
+                numOfFeeds = context.Feed.Count();
+            }
+
             Application.Current.MainWindow.Closing += MainWindow_Closing;
         }
 
@@ -47,11 +53,17 @@ namespace RSSReader
 
         private void Tmr_Elapsed(object sender, ElapsedEventArgs e)
         {
-            var result = MessageBox.Show("Nowe wiadomości zostały pobrane, czy chcesz odświeżyć listę?", "Informacja", MessageBoxButton.YesNo,
-                MessageBoxImage.Information);
-            if(result == MessageBoxResult.Yes)
+            var context = new RSSFeedDatabaseEntities();
+            MessageBoxResult result = MessageBox.Show($"Nowe wiadomości ({context.Feed.Count() - numOfFeeds}) zostały pobrane, lista zostanie odświeżona", "Informacja",
+                MessageBoxButton.OK, MessageBoxImage.Information);
+            if (result == MessageBoxResult.OK)
             {
                 Utiles.AddFeedsToListbox(ChannelsList.Text, FeedList);
+                TitleBlock.Text = String.Empty;
+                DateBlock.Text = String.Empty;
+                DescriptionBlock.Text = String.Empty;
+                ImageCanvas.Children.Clear();
+                numOfFeeds = context.Feed.Count();
             }
         }
 
