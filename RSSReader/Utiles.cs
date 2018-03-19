@@ -94,13 +94,5 @@ namespace RSSReader
                 return context.Feed.Where(x => x.Channel.Title == channelTitle).Count() - numOfFeeds;
             }
         }
-        public static void ShowRefreshingProgress(ProgressBar progressBar)
-        {
-            for (int i = 0; i < 20; i++)
-            {
-                progressBar.Value = i*5;
-                Thread.Sleep(1000);
-            }
-        }
     }
 }
