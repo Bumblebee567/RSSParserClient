@@ -180,6 +180,7 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="ReaderLogo.png" />
     <Content Include="RSSFeedDatabaseModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>RSSFeedDatabaseModel.Context.cs</LastGenOutput>

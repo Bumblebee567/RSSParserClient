@@ -12,8 +12,9 @@
         WindowStyle="None"
         WindowStartupLocation="CenterScreen">
     <Grid>
-        <StackPanel>
-            <TextBlock TextAlignment="Center" FontSize="16" Margin="30">
+        <StackPanel Orientation="Vertical">
+            <Image Source="ReaderLogo.png" Width="200" Margin="8"/>
+            <TextBlock TextAlignment="Center" FontSize="10">
                 Proszę czekać, trwa odświeżanie bazy danych...
             </TextBlock>
         </StackPanel>

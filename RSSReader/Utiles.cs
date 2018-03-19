@@ -94,5 +94,12 @@ namespace RSSReader
                 return context.Feed.Where(x => x.Channel.Title == channelTitle).Count() - numOfFeeds;
             }
         }
+        public static void ShowRefreshingCommunicateWindow()
+        {
+            var communicate = new RefreshingCommunicateWindow();
+            communicate.Show();
+            Thread.Sleep(19000);
+            communicate.Close();
+        }
     }
 }

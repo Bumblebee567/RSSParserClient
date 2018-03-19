@@ -19,10 +19,7 @@ namespace RSSReader
             InitializeComponent();
             Utiles.StartParser();
             Hide();
-            var communicate = new RefreshingCommunicateWindow();
-            communicate.Show();
-            Thread.Sleep(19000);
-            communicate.Close();
+            Utiles.ShowRefreshingCommunicateWindow();
             Show();
             Utiles.AddChannelsToCombobox(ChannelsList);
             Application.Current.MainWindow.Closing += MainWindow_Closing;
