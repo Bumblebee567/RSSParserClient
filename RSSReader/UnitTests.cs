@@ -18,56 +18,56 @@ namespace RSSReader
             {
                 var target = new Feed();
                 var items = target.FeedID;
-                Assert.IsNotNull(items);
+                Assert.IsNotNull(items, "shouldn't be a null");
             }
             [TestCase]
             public void CheckIf_ChannelID_HaveID()
             {
                 var target = new Feed();
                 var items = target.ChannelID;
-                Assert.IsNotNull(items);
+                Assert.IsNotNull(items, "shouldn't be a null");
             }
             [TestCase]
             public void CheckIf_Title_HaveTitle()
             {
                 var target = new Feed();
                 var items = target.Title;
-                Assert.IsNull(items);
+                Assert.IsNull(items, " should be a null.");
             }
             [TestCase]
             public void CheckIf_Link_HaveLink()
             {
                 var target = new Feed();
                 var items = target.Link;
-                Assert.IsNull(items);
+                Assert.IsNull(items, " should be a null.");
             }
             [TestCase]
             public void CheckIf_Description_HaveDescription()
             {
                 var target = new Feed();
                 var items = target.Description;
-                Assert.IsNull(items);
+                Assert.IsNull(items, " should be a null.");
             }
             [TestCase]
             public void CheckIf_Imagelink_HaveImmageLink()
             {
                 var target = new Feed();
                 var items = target.Imagelink;
-                Assert.IsNull(items);
+                Assert.IsNull(items, " should be a null.");
             }
             [TestCase]
             public void CheckIf_Date_HaveDate()
             {
                 var target = new Feed();
                 var items = target.Date;
-                Assert.IsNull(items);
+                Assert.IsNull(items, " should be a null.");
             }
             [TestCase]
             public void CheckIf_Channel_HaveChanel()
             {
                 var target = new Feed();
                 var items = target.Channel;
-                Assert.IsNull(items);
+                Assert.IsNull(items, " should be a null.");
             }
         }
     }
