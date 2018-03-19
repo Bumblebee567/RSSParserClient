@@ -4,20 +4,20 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="TVN RSS Reader" Height="416" Width="500"
+        Title="TVN RSS Reader" Height="595" Width="750"
         ResizeMode="CanMinimize"
-        Background="Silver"
+        Background="White"
         WindowStartupLocation="CenterScreen"
         Icon="Tatice-Cristal-Intense-RSS.ico">
     <Border Padding="10">
         <Grid>
             <StackPanel>
-                <TextBlock Text="Wybierz kanał RSS: " TextAlignment="Center"/>
+                <TextBlock Text="Wybierz kanał RSS: " FontSize="18" TextAlignment="Center"/>
                 <Grid>
-                    <ComboBox Name="ChannelsList" Width="300" Margin="5"/>
-                    <Button Content="pokaż" Width="50" Height="20" Margin="380 0 0 0" Click="Button_Click"/>
+                    <ComboBox Name="ChannelsList" Width="500" Height="25" Margin="5" FontSize="14"/>
+                    <Button Content="POKAŻ" Width="50" Height="20" Margin="580 0 0 0" Click="Button_Click"/>
                 </Grid>
-                <ListBox Height="120" Name="FeedList" FontSize="10" IsSynchronizedWithCurrentItem="True" SelectionChanged="FeedList_SelectionChanged">
+                <ListBox Height="180" Name="FeedList" FontSize="16" IsSynchronizedWithCurrentItem="True" SelectionChanged="FeedList_SelectionChanged">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal">
@@ -28,23 +28,23 @@
                 </ListBox>
                 <StackPanel>
                     <Border Padding="2"/>
-                    <TextBlock Name="TitleBlock" Background="White" Margin="0 " FontStyle="Normal" FontSize="16" TextAlignment="Left" FontWeight="DemiBold" TextWrapping="Wrap" >
+                    <TextBlock Name="TitleBlock" Height="50" Background="White" Margin="0 " FontStyle="Normal" FontSize="18" TextAlignment="Left" FontWeight="DemiBold" TextWrapping="Wrap" >
                     </TextBlock>
-                    <TextBlock Name="DateBlock" Background="White" FontSize="10" FontStyle="Italic">
+                    <TextBlock Name="DateBlock" Height="20" Background="White" FontSize="13" FontStyle="Italic">
                     </TextBlock>
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="2*"/>
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
-                        <TextBlock Name="DescriptionBlock" Grid.Column="0" Background="White" FontSize="12" TextWrapping="Wrap">
-                            
+                        <TextBlock Name="DescriptionBlock" Grid.Column="0" Background="White" FontSize="18" TextWrapping="Wrap" Height="200">
+
                         </TextBlock>
                         <Border Grid.Column="1" >
-                            <Canvas Grid.Column="1" Background="White" Name="ImageCanvas" Width="155" Height="112" />
+                                <Canvas Grid.Column="1" Background="White" Name="ImageCanvas" Margin="0"/>
                         </Border>
                     </Grid>
-                    <TextBlock FontSize="12" Name="LinkBlock" Background="White">
+                    <TextBlock FontSize="16" Name="LinkBlock" Height="25" Background="White">
                         <Hyperlink Name="HyperlinkBox" RequestNavigate="HyperlinkBox_RequestNavigate">
                             zobacz więcej
                         </Hyperlink>

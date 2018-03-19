@@ -1,19 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Timers;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace RSSReader
 {
@@ -32,7 +22,7 @@ namespace RSSReader
             var startInfo = new ProcessStartInfo();
             startInfo.FileName = @"C:\RSSParser\Parser\bin\Debug\Parser.exe";
             process = Process.Start(startInfo);
-            var a = process.ProcessName;
+
             Timer tmr = new Timer();
             tmr.Elapsed += Tmr_Elapsed;
             tmr.Interval = 330000;
@@ -53,17 +43,15 @@ namespace RSSReader
 
         private void Tmr_Elapsed(object sender, ElapsedEventArgs e)
         {
-            var context = new RSSFeedDatabaseEntities();
-            MessageBoxResult result = MessageBox.Show($"Nowe wiadomości ({context.Feed.Count() - numOfFeeds}) zostały pobrane, lista zostanie odświeżona", "Informacja",
-                MessageBoxButton.OK, MessageBoxImage.Information);
-            if (result == MessageBoxResult.OK)
+            using (var context = new RSSFeedDatabaseEntities())
             {
-                Utiles.AddFeedsToListbox(ChannelsList.Text, FeedList);
-                TitleBlock.Text = String.Empty;
-                DateBlock.Text = String.Empty;
-                DescriptionBlock.Text = String.Empty;
-                ImageCanvas.Children.Clear();
-                numOfFeeds = context.Feed.Count();
+                var newFeedsNumber = context.Feed.Count() - numOfFeeds;
+                if (newFeedsNumber != 0)
+                {
+                    MessageBox.Show($"Nowe wiadomości ({newFeedsNumber}) zostały pobrane, kliknij \"pokaż\" by odświeżyć", "TVN RSS Reader",
+                        MessageBoxButton.OK, MessageBoxImage.Information);
+                    numOfFeeds = newFeedsNumber;
+                }
             }
         }
 
@@ -84,7 +72,7 @@ namespace RSSReader
             if (currentFeed != null)
             {
                 TitleBlock.Text = currentFeed.Title;
-                if (currentFeed.Description.Length > 300)
+                if (currentFeed.Description.Length > 400)
                 {
                     DescriptionBlock.Text = currentFeed.Description.Substring(0, currentFeed.Description.Length - (currentFeed.Description.Length - 300));
                 }

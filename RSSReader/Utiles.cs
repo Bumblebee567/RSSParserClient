@@ -22,8 +22,8 @@ namespace RSSReader
             bitmap.UriSource = new Uri(imageUrl, UriKind.Absolute);
             bitmap.EndInit();
             image.Source = bitmap;
-            image.Width = 154;
-            image.Height = 112;
+            image.Width = 241;
+            image.Height = 200;
             return image;
         }
         public static void AddChannelsToCombobox(ComboBox channelsComboBox)
