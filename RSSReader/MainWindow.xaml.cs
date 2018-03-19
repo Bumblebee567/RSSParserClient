@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Linq;
+using System.Threading;
 using System.Timers;
 using System.Windows;
 using System.Windows.Controls;
@@ -16,14 +17,21 @@ namespace RSSReader
         public MainWindow()
         {
             InitializeComponent();
-            Utiles.AddChannelsToCombobox(ChannelsList);
             Utiles.StartParser();
+            Hide();
+            var communicate = new RefreshingCommunicateWindow();
+            communicate.Show();
+            Thread.Sleep(19000);
+            communicate.Close();
+            Show();
+            Utiles.AddChannelsToCombobox(ChannelsList);
             Application.Current.MainWindow.Closing += MainWindow_Closing;
             using (var context = new RSSFeedDatabaseEntities())
             {
                 numOfFeeds = context.Feed.Count();
             }
-            Timer tmr = new Timer();
+
+            System.Timers.Timer tmr = new System.Timers.Timer();
             tmr.Elapsed += Tmr_Elapsed;
             tmr.Interval = 330000;
             tmr.Start();
