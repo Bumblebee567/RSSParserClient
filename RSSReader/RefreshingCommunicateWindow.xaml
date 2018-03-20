@@ -6,15 +6,16 @@
              xmlns:local="clr-namespace:RSSReader"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300"
-             Width="400"
+             Width="300"
              Height="100"
              Background="White"
         WindowStyle="None"
-        WindowStartupLocation="CenterScreen">
+        WindowStartupLocation="CenterScreen"
+        Icon="Tatice-Cristal-Intense-RSS.ico">
     <Grid>
         <StackPanel Orientation="Vertical">
             <Image Source="ReaderLogo.png" Width="200" Margin="8"/>
-            <TextBlock TextAlignment="Center" FontSize="10">
+            <TextBlock TextAlignment="Center" FontSize="11">
                 Proszę czekać, trwa odświeżanie bazy danych...
             </TextBlock>
         </StackPanel>
