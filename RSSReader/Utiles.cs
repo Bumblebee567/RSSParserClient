@@ -91,7 +91,7 @@ namespace RSSReader
         {
             using (var context = new RSSFeedDatabaseEntities())
             {
-                return context.Feed.Where(x => x.Channel.Title == channelTitle).Count() - numOfFeeds;
+                return context.Feed.Count() - numOfFeeds;
             }
         }
         public static void ShowRefreshingCommunicateWindow()

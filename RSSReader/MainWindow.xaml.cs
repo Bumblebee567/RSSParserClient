@@ -30,7 +30,7 @@ namespace RSSReader
 
             System.Timers.Timer tmr = new System.Timers.Timer();
             tmr.Elapsed += Tmr_Elapsed;
-            tmr.Interval = 330000;
+            tmr.Interval = 320000;
             tmr.Start();
         }
         private void Tmr_Elapsed(object sender, ElapsedEventArgs e)
